@@ -1,0 +1,180 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 98%;
+    --foreground: 240 10% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 20%;
+
+    --primary: 280 85% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 280 15% 94%;
+    --secondary-foreground: 240 10% 20%;
+
+    --muted: 240 5% 94%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 280 40% 70%;
+    --accent-foreground: 240 6% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 280 85% 60%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 6%;
+    --foreground: 240 10% 90%;
+
+    --card: 240 10% 10%;
+    --card-foreground: 240 10% 90%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 240 10% 90%;
+
+    --primary: 280 75% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 240 10% 15%;
+    --secondary-foreground: 240 10% 90%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 10% 60%;
+
+    --accent: 280 40% 45%;
+    --accent-foreground: 240 10% 90%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 280 75% 60%;
+
+    --sidebar-background: 240 10% 8%;
+    --sidebar-foreground: 240 10% 80%;
+    --sidebar-primary: 240 10% 80%;
+    --sidebar-primary-foreground: 240 10% 10%;
+    --sidebar-accent: 240 10% 20%;
+    --sidebar-accent-foreground: 240 10% 80%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 80% 20%, hsl(var(--accent)/0.2), transparent 40%),
+                      radial-gradient(circle at 20% 80%, hsl(var(--primary)/0.2), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/30 backdrop-blur-lg border border-white/50 shadow-xl rounded-2xl;
+  }
+  
+  .shop-item {
+    @apply glass-panel p-4 transition-all hover:scale-[1.02] hover:shadow-xl cursor-pointer;
+  }
+  
+  .card-item {
+    @apply glass-panel transition-all hover:scale-[1.02] hover:shadow-xl;
+  }
+  
+  .coin-animation {
+    @apply pointer-events-none absolute animate-coin-float text-yellow-500;
+  }
+  
+  .click-ripple {
+    @apply pointer-events-none absolute rounded-full bg-white/40 animate-click-ripple;
+  }
+}
+
+@keyframes coin-float {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) rotate(20deg);
+  }
+}
+
+@keyframes click-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-coin-float {
+  animation: coin-float 1s ease-out forwards;
+}
+
+.animate-click-ripple {
+  animation: click-ripple 0.8s ease-out forwards;
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+.cat-shadow {
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.stats-bar {
+  @apply bg-gradient-to-r from-accent/50 to-primary/50 rounded-full h-2;
+}
