@@ -437,7 +437,7 @@ const CaseShop: React.FC<CaseShopProps> = ({
                 {lastReward.imagePath && (
                   <div className="flex justify-center mb-3">
                     <img 
-                      src={lastReward.imagePath} 
+                      src={lastReward.imagePath.startsWith("/lovable-uploads/") ? ${import.meta.env.BASE_URL}${lastReward.imagePath.slice(1)} : lastReward.imagePath} 
                       alt={lastReward.name}
                       className="w-24 h-24 object-contain"
                     />
