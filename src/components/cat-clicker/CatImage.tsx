@@ -66,7 +66,7 @@ const CatImage: React.FC<CatImageProps> = ({
     43: 'vi-character.png'
   };
 
-  const imagePath = `/lovable-uploads/${skinImageMap[selectedSkin] || skinImageMap[1]}`;
+  const imagePath = `${import.meta.env.BASE_URL}lovable-uploads/${skinImageMap[selectedSkin] || skinImageMap[1]}`;
 
   return (
     <div
