@@ -67,7 +67,7 @@ const SkinItem: React.FC<SkinItemProps> = ({
       
       <div className="h-28 mb-4 flex items-center justify-center rounded bg-muted/40 overflow-hidden">
         {imagePath ? (
-          <img src={imagePath} alt={name} className="h-full object-contain" />
+          <img src={imagePath.startsWith("/lovable-uploads/") ? ${import.meta.env.BASE_URL}${imagePath.slice(1)} : imagePath} alt={name} className="h-full object-contain" />
         ) : (
           <span className="text-sm text-muted-foreground">Превью недоступно</span>
         )}
