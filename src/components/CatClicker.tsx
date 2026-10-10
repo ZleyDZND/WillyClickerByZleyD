@@ -564,7 +564,7 @@ const CatClicker = () => {
                               >
                                 <div className="aspect-square mb-2 rounded overflow-hidden bg-muted/40">
                                   <img 
-                                    src={skin.imagePath} 
+                                    src={skin.imagePath.startsWith("/lovable-uploads/") ? ${import.meta.env.BASE_URL}${skin.imagePath.slice(1)} : skin.imagePath} 
                                     alt={skin.name}
                                     className="w-full h-full object-contain"
                                   />
@@ -601,7 +601,7 @@ const CatClicker = () => {
                               >
                                 <div className="aspect-square mb-2 rounded overflow-hidden bg-muted/40">
                                   <img 
-                                    src={skin.imagePath} 
+                                    src={skin.imagePath.startsWith("/lovable-uploads/") ? ${import.meta.env.BASE_URL}${skin.imagePath.slice(1)} : skin.imagePath} 
                                     alt={skin.name}
                                     className="w-full h-full object-contain"
                                   />
@@ -638,7 +638,7 @@ const CatClicker = () => {
                               >
                                 <div className="aspect-square mb-2 rounded overflow-hidden bg-muted/40">
                                   <img 
-                                    src={skin.imagePath} 
+                                    src={skin.imagePath.startsWith("/lovable-uploads/") ? ${import.meta.env.BASE_URL}${skin.imagePath.slice(1)} : skin.imagePath} 
                                     alt={skin.name}
                                     className="w-full h-full object-contain"
                                   />
